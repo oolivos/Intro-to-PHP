@@ -1,0 +1,199 @@
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hola Mundo desde PHP</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+	<?php 
+
+		/*
+		$nombre = "Oscar";
+		$edad = 20;
+		$precio = 123.56;
+		$verdad = true;
+
+		$nombre = 34;
+
+		
+
+		$numero1 = 20;
+		$numero2 = 12;
+
+
+		$numero3 = $numero1 + $numero2;
+		// - * / %
+
+		echo "El resultado es <h4>".$numero3."</h4>";
+
+		$numero = 35;
+
+		if($numero % 2 == 0){
+			echo $numero. " es Par";
+		}else{
+			echo $numero." es Impar";
+		}
+
+		$diaSemana = 5;
+		switch ($diaSemana) {
+			case 1:
+				echo "Lunes";
+				break;
+			case 2:
+				echo "Martes";
+				break;
+			case 3:
+				echo "Miercoles";
+				break;
+			case 4:
+				echo "Jueves";
+				break;
+			case 5:
+				echo "Viernes";
+				break;
+			case 6:
+				echo "Sabado";
+				break;
+			case 7:
+				echo "Domingo";
+				break;
+			
+			default:
+				echo "Dia no valido!!"
+				break;
+		}
+
+		for ($i=0; $i < 10; $i++) { 
+			echo $i;
+		}
+
+
+		$contador = 0;
+		for ($j=1; $j <= $numero ; $j++) { 
+			if($numero % $j == 0){
+				$contador++;
+			}
+		}
+
+		if($contador == 2){
+			echo $numero." es Primo ";
+		}else{
+			echo $numero." No es primo";
+		}
+
+		do{
+
+		}while()
+
+		while(){
+
+		}
+
+		$nombres = ["Oscar", "Juan", "Maria"];
+		$nombres =  array("Oscar","Juan", "Maria" );
+		$estudiante  = array('nombre' => "Oscar" , "Edad" => 33, "correo" => "oolivos@unisangil.edu.co" );
+		echo $nombres[0];
+		foreach ($nombres as $nombre) {
+			echo $nombre;
+		}
+		*/
+
+		$estudiantes = [
+			[
+				"nombre" => "Juan",
+				"edad" => 23,
+				"asignaturas" => [
+					"Calculo",
+					"Matematicas",
+					"Programacion",
+					"electivas" => [
+						"fotografia",
+						"Ciclismo"
+					]
+
+				]
+			],
+			[
+				"nombre" => "OScar",
+				"edad" => 33,
+				"asignaturas" => [
+					"Programacion",
+					"Algebra",
+					"Bases de Datos",
+					"electivas" => [
+						"tenis",
+						"futbol",
+						"ortografia"
+					]
+				]
+			],
+
+
+		];
+
+
+	 ?>
+
+<section class="container">
+	<h2> <?php echo "Hola a Todos" ?> </h2>
+	<table class="table table-bordered ">
+		<tr>
+			<th>Nombre</th>
+			<th>Edad</th>
+			<th>Asignaturas</th>
+		</tr>
+		<?php 
+		foreach ($estudiantes as $estudiante) {	
+		 ?>
+		 <tr>
+		 	<td><?php echo $estudiante['nombre'] ?></td>
+		 	<td><?php echo $estudiante['edad'] ?></td>
+		 	<td>
+		 		<?php 
+		 		foreach($estudiante['asignaturas'] as $asignatura){
+		 			echo $asignatura;
+		 			//var_dump($asignatura['electivas']);
+		 			
+		 			
+		 			//echo is_array($asignatura);
+		 			
+		 			if( gettype(($asignatura) == 'array')){
+
+		 				
+		 				echo "Electivas ( ";
+			 			foreach ($asignatura['electivas'] as $electiva) {
+			 				echo $electiva." ";
+			 			}
+			 			echo " )";
+			 			
+
+		 			}
+		 			
+		 			
+
+
+		 		}
+		 		 ?>
+		 	</td>
+		 </tr>
+		 <?php } ?>
+	</table>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
